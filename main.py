@@ -84,18 +84,21 @@ for _ in range(word_length):
 
 # Print the display list
 print(display)
-
 """
-This while loop continues until the end_of_game condition is met. Within the loop:
-1. The user is prompted to guess a letter, which is converted to lowercase.
-2. The loop then iterates over the length of the chosen word. For each position in the word:
-   a. It checks if the letter at that position matches the guessed letter.
-   b. If there is a match, the corresponding position in the
-   display list is updated with the guessed letter.
-3. The updated display list is printed after each guess.
-4. The loop checks if there are any remaining underscores ('_') in the display list.
-   If not, it means the user has correctly guessed all the letters, 
-   the end_of_game is set to True, and the user is notified of their win.
+This while loop runs the main game logic until the end_of_game condition is met. 
+The game continues under these conditions:
+1. The player is repeatedly prompted to guess a letter, which is converted to lowercase.
+2. The loop iterates over the length of the chosen word:
+   a. If the guessed letter matches a letter in the chosen word, that letter is 
+   revealed in the display list at the corresponding position.
+3. If the guessed letter is not in the chosen word, the player loses one life.
+   a. If the player's lives reach zero, the game ends, and the player loses.
+4. After each guess, the current state of the display (showing correctly guessed 
+letters and remaining blanks) is printed.
+5. The game checks if there are any remaining underscores ('_') in the display list:
+   a. If not, it means the player has guessed all the letters, the end_of_game is set to True, 
+   and the player wins.
+6. The current state of the hangman (based on the number of lives left) is printed after each guess.
 """
 while not end_of_game:
   guess = input("Guess a letter: ").lower()
@@ -117,3 +120,5 @@ while not end_of_game:
   if "_" not in display:
     end_of_game = True
     print("You Win!")
+    
+  print(stages[lives])
