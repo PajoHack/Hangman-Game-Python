@@ -4,6 +4,11 @@ from hangman_words import word_list
 from hangman_art import stages, logo
 
 def clear():
+    """
+    Clears the console screen based on the operating system.
+    - For Windows (where os.name is 'nt'), it executes the 'cls' command.
+    - For Unix-based systems like Mac and Linux (where os.name is 'posix'), it executes the 'clear' command.
+    """
     # for windows
     if os.name == 'nt':
         _ = os.system('cls')
@@ -13,11 +18,22 @@ def clear():
 
 """
 Game Initialization Variables:
-1. end_of_game: A boolean flag to control the game loop. It starts as False and turns True when the game ends.
-2. word_list: A list of words from which one will be randomly selected as the 'chosen word' for the game.
-3. chosen_word: A randomly selected word from word_list. This is the word the player tries to guess.
-4. word_length: The length of chosen_word. Used to determine the number of guesses and iterations in the game loop.
-5. lives: Keeps track of the users remaining lives.
+1. end_of_game: A boolean flag to control the game loop. It starts as False and turns
+True when the game ends, either when the player wins or runs out of lives.
+2. word_list: A list of words, imported from the 'hangman_words' module, 
+from which one word is randomly selected as the 'chosen word' for the game.
+3. chosen_word: A word randomly selected from the 'word_list'. 
+This is the word that the player attempts to guess throughout the game.
+4. word_length: The length of the 'chosen_word'. It's used to determine the number 
+of underscores displayed to the player, representing the letters to guess.
+5. lives: The number of incorrect guesses the player is allowed before the game ends. 
+Starts at 6, representing the stages of the hangman drawing.
+6. logo: Displays the Hangman game logo or title screen, 
+printed at the start of the game for a visual introduction. The logo is imported from the 'hangman_art' module.
+
+These variables collectively initialize the state of the Hangman game. 
+They set up the word to be guessed, the player's available lives, 
+and display the initial game interface, including the hangman logo and blank underscores for the chosen word.
 """
 end_of_game = False
 chosen_word = random.choice(word_list)
