@@ -1,39 +1,47 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman Game
 
-Welcome,
+## Description
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This Python program is an implementation of the classic word-guessing game, Hangman. It features a simple console-based interface where the player guesses letters to form a word. The game uses a list of pre-defined words and represents the hangman stages graphically as the player makes incorrect guesses. The program is divided into several components, each handling a different aspect of the game.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+## Requirements
 
-## Codeanywhere Reminders
+- Python 3.x
+- Two additional Python files: hangman_words.py and hangman_art.py
+  - hangman_words.py should contain a list of words (word_list) from which the program will randomly select one for the game.
+  - hangman_art.py should contain two variables: stages (a list of strings representing different stages of the hangman) and logo (a string representing the game's logo).
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+- Random word selection from a provided list.
+- Console-based user interaction for guessing letters.
+- Dynamic display of the player's progress in guessing the word.
+- Graphical representation of the hangman as the player makes incorrect guesses.
+- Game-over conditions for both winning (guessing the word) and losing (using up all lives).
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## How to Play
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- Run the Python program.
+- The Hangman game logo and an initial word (hidden with underscores) will be displayed.
+- Guess letters one at a time by typing them into the console.
+- The game will reveal guessed letters in the word and display the hangman stages for incorrect guesses.
+- The game ends when either the word is fully guessed (win) or the hangman is completely drawn (loss).
 
-`http_server`
+## Implementation Details
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- The `clear()` function: Clears the console screen to refresh the game's display after each guess. It works differently depending on the operating system.
+- Game Initialization Variables: Set up the initial state of the game, including selecting a random word, initializing game conditions, and displaying the game logo.
+- Main Game Loop: Handles the logic for guessing letters, updating the display, and checking win/loss conditions.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## How to Run
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Ensure you have Python 3.x installed.
+- Place the hangman_words.py and hangman_art.py files in the same directory as this script.
+- Run the script using a Python interpreter.
 
-To log into the Heroku toolbelt CLI:
+## Notes
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- This game is console-based and does not feature a graphical user interface.
+- Customization of the word list and hangman stages can be done in the respective `hangman_words.py` and `hangman_art.py files`.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+Please ensure that the hangman_words.py and hangman_art.py files are correctly set up and available in the same directory as this script for the program to function properly.
